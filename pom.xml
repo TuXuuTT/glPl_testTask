@@ -14,7 +14,7 @@
 
         <!-- Dependencies versions -->
         <testng.version>6.9.10</testng.version>
-        <selenium.version>2.49.1</selenium.version> <!--can be removed if selenium inherited from An D framework-->
+        <selenium.version>2.49.1</selenium.version>
         <hamcrest.version>1.3</hamcrest.version>
         <annotations.version>13.0</annotations.version>
 
@@ -152,17 +152,17 @@
     Without specifying profile you will have to manually set -Dkey=value for each missing profile-specific variable. -->
     <profiles>
         <profile>
-            <id>qaSmoke_env-non_default</id>
+            <id>qaSmoke_env-envName</id>
             <activation>
                 <property>
                     <name>env</name>
-                    <value>non_default</value>
+                    <value>envName</value>
                 </property>
             </activation>
             <properties>
                 <app.url>placeHolder</app.url>
-                <users.login>placeHolder</users.login>
-                <users.password>placeHolder</users.password>
+                <user.login>placeHolder</user.login>
+                <user.password>placeHolder</user.password>
                 <testng.suitexmlfile>placeHolder</testng.suitexmlfile>
             </properties>
         </profile>

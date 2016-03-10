@@ -7,7 +7,6 @@ import com.ui.automation.environment.EnvironmentConfigurator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
 
 
 public abstract class BasePage {
@@ -74,43 +73,5 @@ public abstract class BasePage {
             }
             b = element.getLocation();
         } while (!a.equals(b));
-    }
-
-    public void dragAndDropMadCap(WebElement dragElement, WebElement dropElement, /*String iFrameName,*/ int msDelayBeforeDrop, int x, int y) {
-        // Init our action builder;
-        Actions builder = new Actions(getWebDriverCurrent());
-
-        // Pickup the dragElement
-        builder.clickAndHold(dragElement).perform();
-
-        // If delay required, delay
-        if (msDelayBeforeDrop > 0)
-            Selenide.sleep(msDelayBeforeDrop);
-
-        // If across frames, switch frame
-//            if (iFrameName != null && !iFrameName.isEmpty())
-//                switchToFrame(iFrameName);
-
-        // Move to the dropElement
-        if (x != -1 || y != -1) {
-            // If we are dropping "Above" the target, drag to the element, then move to above
-            if (y < 0) {
-                // Make sure there is space above the element
-                ((JavascriptExecutor) getWebDriverCurrent()).executeScript("arguments[0].scrollIntoView(); document.body.scrollTop += " + (y - 5), dropElement);
-                builder.moveToElement(dropElement).perform();
-                Selenide.sleep(msDelayBeforeDrop);
-            }
-            builder.moveToElement(dropElement, x, y).perform();
-        } else {
-            builder.moveToElement(dropElement).perform();
-        }
-
-        // If delay required, delay
-//        if (msDelayBeforeDrop > 0)
-//            Selenide.sleep(msDelayBeforeDrop);
-        waitForElementStopMoving(dragElement);
-
-        // Release the drag element
-        builder.release().perform();
     }
 }

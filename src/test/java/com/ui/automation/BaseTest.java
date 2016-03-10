@@ -25,7 +25,7 @@ public class BaseTest implements IHookable {
 
     protected static void setSelenideConfigurations() {
         Configuration.screenshots = false;
-        Configuration.timeout = 10000L;
+        Configuration.timeout = 10000;
     }
 
     public RemoteWebDriver getPureWdInstance() {

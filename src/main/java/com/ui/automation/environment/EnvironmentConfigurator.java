@@ -68,11 +68,11 @@ public class EnvironmentConfigurator {
     }
 
     public String getLogin() {
-        return System.getProperty("users.login", properties.getProperty("users.login"));
+        return System.getProperty("user.login", properties.getProperty("user.login"));
     }
 
     public String getPassword() {
-        return System.getProperty("users.password",properties.getProperty("users.password"));
+        return System.getProperty("user.password",properties.getProperty("user.password"));
     }
 
 }
