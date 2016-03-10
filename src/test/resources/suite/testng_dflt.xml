@@ -3,14 +3,8 @@
 <suite name="Test Suite" thread-count="2" data-provider-thread-count="2" group-by-instances="true"
        preserve-order="false">
     <test name="Simple Test">
-        <groups>
-            <run>
-                <include name=".*smoke"/>
-                <exclude name="broken"/>
-            </run>
-        </groups>
         <packages>
             <package name="com.ui.automation.web.*"/>
         </packages>
-    </test> <!-- madcap -->
+    </test>
 </suite>

@@ -115,10 +115,16 @@ public class BrowserClient {
         } else {
             if (System.getProperty("webdriver.chrome.driver") == null) {
                 String chromeDriverName;
+                String chromedriverPath;
                 if (OSUtils.isWindows()) {
                     chromeDriverName = "chromedriver.exe";
+                    chromedriverPath = currentThread().getContextClassLoader().getResource(chromeDriverName).getPath();
                 } else chromeDriverName = "chromedriver";
-                String chromedriverPath = currentThread().getContextClassLoader().getResource(chromeDriverName).getPath();
+                {
+//                there is a bug that sometimes compiles resources with worng permissions during MAC OS maven run
+//                https://issues.apache.org/jira/browse/MRESOURCES-132
+                    chromedriverPath = "src/main/resources/" + chromeDriverName;
+                }
                 LOGGER.warn("webdriver.chrome.driver is not set. will now try to use [" + chromedriverPath + "]");
                 System.setProperty("webdriver.chrome.driver", chromedriverPath);
             }
