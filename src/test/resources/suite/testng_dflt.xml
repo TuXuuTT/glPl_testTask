@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-        <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="[CompanyName] tests" thread-count="2" data-provider-thread-count="2" group-by-instances="true" preserve-order="false">
-<test name="[Test Name]">
-    <packages>
-        <package name="com.ui.automation.web.*"/>
-    </packages>
-</test>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test Suite" thread-count="2" data-provider-thread-count="2" group-by-instances="true"
+       preserve-order="false">
+    <test name="Simple Test">
+        <groups>
+            <run>
+                <include name=".*smoke"/>
+                <exclude name="broken"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="com.ui.automation.web.*"/>
+        </packages>
+    </test> <!-- madcap -->
 </suite>
