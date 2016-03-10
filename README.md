@@ -1,6 +1,6 @@
 execute maven task with valid credentials:
 
-mvn clean test -Duser.login=\<loginName\> -Duser.password=\<loginPassword\>s
+mvn clean test "-Duser.login=\<loginName\>" "-Duser.password=\<loginPassword\>"
 
 Chrome is used as default browser. If you want to run in Firefox, just add to command line:
 
