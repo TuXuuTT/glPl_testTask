@@ -1,10 +1,10 @@
-execute maven task with Valid credentials:
+execute maven task with valid credentials:
 
-mvn clean test -Duser.login="\<loginName\>" -Duser.password="\<loginPassword\>"
+mvn clean test -Duser.login=\<loginName\> -Duser.password=\<loginPassword\>s
 
-Chrome is used as default browser. If you want to run in firefox, just add to command line:
+Chrome is used as default browser. If you want to run in Firefox, just add to command line:
 
 -DbrowserClient=ff
 
 Note:
-In case of provding invalid credentials test will fail. For testing negative scenario there should be another test method
+There are only 1 positive test. In case of providing invalid credentials test will fail. For testing negative scenario there should be another test method
