@@ -51,12 +51,20 @@ public class EnvironmentConfigurator {
         return System.getProperty("grid.seleniumHub", properties.getProperty("grid.seleniumHub"));
     }
 
-    public String getTestClient() {
+    public String getLocalization() {
+        return System.getProperty("i18n", properties.get("i18n").toString());
+    }
+
+    public String getBrowserClient() {
         return System.getProperty("browserClient", properties.getProperty("browserClient"));
     }
 
+//    public String getSuiteXmlName() {
+//        return System.getProperty("testng.suitexmlfile", properties.get("testng.suitexmlfile").toString());
+//    }
+
     public String getAppUrl() {
-        return System.getProperty("url", properties.getProperty("url"));
+        return System.getProperty("app.url", properties.getProperty("app.url"));
     }
 
     public String getLogin() {

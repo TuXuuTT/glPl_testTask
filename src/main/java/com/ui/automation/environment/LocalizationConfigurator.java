@@ -14,7 +14,7 @@ public class LocalizationConfigurator {
 
     private LocalizationConfigurator() throws IOException {
         ClassLoader loader = Thread.currentThread().getContextClassLoader();
-        InputStream i18nStream = loader.getResourceAsStream(String.format("i18n/%s.properties", System.getProperty("i18n", "en")));
+        InputStream i18nStream = loader.getResourceAsStream(String.format("i18n/%s.properties", EnvironmentConfigurator.getInstance().getLocalization()));
         try {
             properties.load(i18nStream);
             i18nStream.close();

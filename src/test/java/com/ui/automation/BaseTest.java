@@ -36,7 +36,7 @@ public class BaseTest implements IHookable {
     public void beforeClass() {
         setSelenideConfigurations();
         try {
-            wd = new BrowserClient().getDriver(EnvironmentConfigurator.getInstance().getTestClient());
+            wd = new BrowserClient().getDriver(EnvironmentConfigurator.getInstance().getBrowserClient());
         } catch (MalformedURLException e) {
             e.printStackTrace();
             LOGGER.error(e);
